@@ -23,37 +23,78 @@ router.get("/", (req, res, next) => {
 
 //  GET the Product Details page in order to add a new Product
 router.get("/add", (req, res, next) => {
-  /*****************
-   * ADD CODE HERE *
-   *****************/
+  res.render("products/add", {title: "Add Products"});
 });
 
 // POST process the Product Details page and create a new Product - CREATE
 router.post("/add", (req, res, next) => {
-  /*****************
-   * ADD CODE HERE *
-   *****************/
+
+  let newProduct = Product({
+    id: req.body.id,
+    name: req.body.name,
+    description: req.body.description,
+    price: req.body.price,
+  });
+
+  Product.create(newProduct, (err, Product) => {
+    if (err) {
+      console.log(err);
+      res.end(err);
+    } else {
+      // refresh the Products list
+      res.redirect("/products");
+    }
+  });
 });
 
 // GET the Product Details page in order to edit an existing Product
-router.get("/:id", (req, res, next) => {
-  /*****************
-   * ADD CODE HERE *
-   *****************/
+router.get("/edit/:id", (req, res, next) => {
+  let id = req.params.id; //id of actual object
+  Product.findById(id, (err, editProduct) => {
+    if (err) {
+      console.log(err);
+      res.end(err);
+    } else {
+      //show the edit view
+      res.render("products/edit", {
+        title: "Edit Product",
+        product: editProduct,
+      });
+    }
+  });
 });
 
 // POST - process the information passed from the details form and update the document
-router.post("/:id", (req, res, next) => {
-  /*****************
-   * ADD CODE HERE *
-   *****************/
+router.post("/edit/:id", (req, res, next) => {
+  let id = req.params.id; //id of actual object
+  let updateproduct = Product({
+    _id: id,
+    id: req.body.id,
+    name: req.body.name,
+    description: req.body.description,
+    price: req.body.price,
+  });
+  Product.updateOne({ _id: id }, updateproduct, (err) => {
+    if (err) {
+      console.log(err);
+      res.end(err);
+    } else {
+      res.redirect("/products");
+    }
+  });
 });
 
 // GET - process the delete
-router.get("/delete", (req, res, next) => {
-  /*****************
-   * ADD CODE HERE *
-   *****************/
+router.get("/delete/:id", (req, res, next) => {
+  let id = req.params.id;
+  Product.remove({ _id: id }, (err) => {
+    if (err) {
+      console.log(err);
+      res.end(err);
+    } else {
+      res.redirect("/products");
+    }
+  });
 });
 
 module.exports = router;

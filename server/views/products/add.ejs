@@ -1,3 +1,70 @@
-<!-- ------------------------ -->
-<!-- ADD the code for Add form HERE -->
-<!-- ------------------------ -->
+<%- include ../partials/header.ejs %> <%- include ../partials/main_nav.ejs %>
+
+<!-- Content  for the add page -->
+<div class="container">
+  <div class="row">
+    <div class="offset-md-3 col-md-6">
+      <h1><%=title %></h1>
+
+      <form class="form" method="post">
+        <div class="from-group">
+          <label for="idTextField">Product ID</label>
+          <input
+            type="text"
+            class="form-control"
+            id="idTextField"
+            placeholder="Enter the Product ID:"
+            name="id"
+            required
+          />
+        </div>
+
+        <div class="from-group">
+          <label for="nameTextField">Product Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="nameTextField"
+            placeholder="Enter the Product Name:"
+            name="name"
+            required
+          />
+        </div>
+
+        <div class="from-group">
+          <label for="descTextField">Description</label>
+          <textarea
+            type="text"
+            class="form-control"
+            id="descTextField"
+            placeholder="Enter the Description of the Product:"
+            name="description"
+            required
+          ></textarea>
+        </div>
+
+        <div class="from-group">
+          <label for="priceTextField">Price</label>
+          <input
+            type="number"
+            class="form-control"
+            id="pricecTextField"
+            placeholder="Enter the Price of Product:"
+            name="price"
+            required
+          />
+        </div>
+
+        <button class="btn btn-primary" type="submit">
+          <i class="fas fa-edit"></i>Submit
+        </button>
+
+        <a href="/book-list" class="btn btn-warning">
+          <i class="fas fa-undo"></i>Cancel
+        </a>
+      </form>
+    </div>
+  </div>
+</div>
+
+<%- include ../partials/bottom_nav.ejs %> <%- include ../partials/footer.ejs %>
