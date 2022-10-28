@@ -5,19 +5,9 @@
   <div class="row">
     <div class="col-md-offset-3 col-md-6">
       <h1><%= title %></h1>
+      <p>Enter Product Name or Price</p>
       <form class="form" method="post">
-        <div class="form-group">
-          <label for="IdTextField">Product id</label>
-          <input
-            type="text"
-            class="form-control"
-            id="IdTextField"
-            placeholder="Product id"
-            name="id"
-            value="<%= product.Productid %>"
-            required
-          />
-        </div>
+      
         <div class="form-group">
           <label for="NameTextField">Product Name</label>
           <input
@@ -26,24 +16,11 @@
             id="NameTextField"
             placeholder="Product name"
             name="name"
-            value="<%= product.Productname %>"
-            required
+            
           />
         </div>
 
-        <div class="form-group">
-          <label for="DescTextField">Description</label>
-          <input
-            type="text"
-            class="form-control"
-            id="DescTextField"
-            placeholder="Product Description"
-            name="description"
-            value="<%= product.Description %>"
-            required
-          />
-        </div>
-
+      
         <div class="form-group">
           <label for="PriceTextField">Price</label>
           <input
@@ -52,17 +29,29 @@
             id="PriceTextField"
             placeholder="Product Price"
             name="price"
-            value="<%= product.Price %>"
-            required
+            
           />
         </div>
 
-        <button type="submit" class="btn btn-primary">
-          <i class="fa fa-check-square-o"></i> Submit
-        </button>
+
+          <button class="btn btn-primary" type="button" onclick="deleteClick()">
+            <i class="fa fa-trash"></i>Delete
+          </button>
+
         <a href="/products" class="btn btn-warning"
           ><i class="fa fa-undo"></i> Cancel</a
         >
+
+        <script>
+            function deleteClick() {
+                if(NameTextField.value == "" && PriceTextField.value == ""){
+                    alert("Please enter a Value");
+                }
+                else{
+                    document.forms[0].submit();
+                }
+            }
+        </script>
       </form>
     </div>
   </div>
