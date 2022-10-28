@@ -1,4 +1,4 @@
-<%- include ../partials/header.ejs %> <%- include ../partials/main_nav.ejs %>
+<% include ../partials/header.ejs %>
 
 <!-- Content  for the add page -->
 <div class="container">
@@ -15,8 +15,7 @@
             id="idTextField"
             placeholder="Enter the Product ID:"
             name="id"
-            required
-          />
+            required/>
         </div>
 
         <div class="from-group">
@@ -27,8 +26,7 @@
             id="nameTextField"
             placeholder="Enter the Product Name:"
             name="name"
-            required
-          />
+            required/>
         </div>
 
         <div class="from-group">
@@ -39,8 +37,8 @@
             id="descTextField"
             placeholder="Enter the Description of the Product:"
             name="description"
-            required
-          ></textarea>
+            required>
+        </textarea>
         </div>
 
         <div class="from-group">
@@ -51,15 +49,14 @@
             id="pricecTextField"
             placeholder="Enter the Price of Product:"
             name="price"
-            required
-          />
+            required/>
         </div>
 
         <button class="btn btn-primary" type="submit">
           <i class="fas fa-edit"></i>Submit
         </button>
 
-        <a href="/book-list" class="btn btn-warning">
+        <a href="/products" class="btn btn-warning">
           <i class="fas fa-undo"></i>Cancel
         </a>
       </form>
@@ -67,4 +64,4 @@
   </div>
 </div>
 
-<%- include ../partials/bottom_nav.ejs %> <%- include ../partials/footer.ejs %>
+<% include ../partials/footer.ejs %>

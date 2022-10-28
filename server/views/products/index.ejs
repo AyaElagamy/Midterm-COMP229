@@ -39,18 +39,24 @@
                 <a href="/products/details/<%= products[count]._id %>" class="btn btn-primary" role="button">
                   <i class="fa fa-pencil-alt"></i> Edit</a>
               </td>
-              <td class="text-center col-1"></td>
+
+              <!-- ------------------------ -->
+                  <!-- ADD the DELETE BUTTON HERE -->
+                  <!-- ------------------------ -->
+              <td class="text-center col-1">
+                <a href="/products/delete/<%= products[count]._id %>" class="btn btn-danger">
+                  <i class="fas fa-trash-alt"></i> Delete</a>
+              </td>
+                 
+    
+                 
             </tr>
             <% } %>
           </tbody>
         </table>
       </div>
   
-    <!-- ------------------------ -->
-    <!-- ADD the DELETE BUTTON HERE -->
-    <!-- ------------------------ -->
-    <a href="/products/delete" class="btn btn-warning btn-sm" role="button">
-      <i class="fas fa-trash"></i> Delete</a>
+
   </main>
   
 
