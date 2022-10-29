@@ -1,3 +1,10 @@
+<!--Name: Aya Elagamy
+ID: 301259668
+Date: Oct 28, 2023
+Section: COMP229-004
+Midterm Assignment
+This page is delete products page form by name-->
+
 <% include ../partials/header.ejs %>
 
 <!-- MAIN CONTENT -->
@@ -16,25 +23,12 @@
             id="NameTextField"
             placeholder="Product name"
             name="name"
-            
+            required
           />
         </div>
 
-      
-        <div class="form-group">
-          <label for="PriceTextField">Price</label>
-          <input
-            type="text"
-            class="form-control"
-            id="PriceTextField"
-            placeholder="Product Price"
-            name="price"
-            
-          />
-        </div>
-
-
-          <button class="btn btn-primary" type="button" onclick="deleteClick()">
+<!-- A botton type submit will submit the form to models/products.js page to delete the -->
+          <button type="submit" class="btn btn-primary">
             <i class="fa fa-trash"></i>Delete
           </button>
 
@@ -42,16 +36,6 @@
           ><i class="fa fa-undo"></i> Cancel</a
         >
 
-        <script>
-            function deleteClick() {
-                if(NameTextField.value == "" && PriceTextField.value == ""){
-                    alert("Please enter a Value");
-                }
-                else{
-                    document.forms[0].submit();
-                }
-            }
-        </script>
       </form>
     </div>
   </div>
